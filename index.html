@@ -269,7 +269,7 @@ function setId(theId) {
 function stopAnimate() {
     clearInterval(tt);
     cnt = 0;
-    document.getElementById("me").style.backgroundColor = 'blue';
+    document.getElementById("me").style.backgroundColor = 'white';
     state = "no";
 }
 var durate = 2000;
@@ -296,7 +296,7 @@ function play(){
     if (cnt==theData.length) {
         clearInterval(tt);
         cnt = 0;
-        document.getElementById("me").style.backgroundColor = 'blue';
+        document.getElementById("me").style.backgroundColor = 'white';
         state = "no";
     } else {
         colorList = theData[cnt];
