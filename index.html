@@ -21,14 +21,24 @@
 }
 .myDiv{
     width: 400px;
-    height: 400px;
+    height: 300px;
     border: solid 1px black;
+    font-size: 200px;
+    color: lightgray;
+}
+.nextDiv{
+    width: 400px;
+    height: 100px;
+    border: solid 1px black;
+    font-size: 200px;
+    color: lightgray;
 }
  </style>
 </head>
  
 <body>
-    <div id="me" class="myDiv"></div><br/>
+    <div id="me" class="myDiv">100</div><br/>
+    <div id="next" class="nextDiv"></div><br/>
     <div id="speed">600</div>
     <button style="width: 50; height: 50px;" onclick="setDurate(0)">-----</button>
     <button style="width: 50; height: 50px;" onclick="setDurate(1)">+++</button>&nbsp;&nbsp;&nbsp;
@@ -126,15 +136,20 @@ function setReady() {
     if (cnt==3) {
         clearInterval(tt);
         cnt = 0;
+        colorList = theData[cnt];
+        document.getElementById("next").style.backgroundColor = 'rgb(' + colorList[parseInt(myId)] + ',0,0)';
         tt = setInterval(play,durate);
     } else if (cnt==0) {
         document.getElementById("me").style.backgroundColor = 'white';
+        document.getElementById("me").innerText = 'set';
         cnt++;
     } else if (cnt==1) {
         document.getElementById("me").style.backgroundColor = 'yellow';
+        document.getElementById("me").innerText = 'ready';
         cnt++;
     } else if (cnt==2) {
         document.getElementById("me").style.backgroundColor = 'green';
+        document.getElementById("me").innerText = 'GO';
         cnt++
     } else {
         colorList = theData[cnt];
@@ -195,6 +210,12 @@ function setbgColor() {
     document.getElementById("48").style.backgroundColor = 'rgb(' + colorList[48] + ',0,0)';
     document.getElementById("49").style.backgroundColor = 'rgb(' + colorList[49] + ',0,0)';
     document.getElementById("me").style.backgroundColor = document.getElementById(myId).style.backgroundColor
+    document.getElementById("me").innerText = cnt;
+    if (cnt!=theData.length-1) {
+            
+        nextcolorList = theData[cnt+1];
+        document.getElementById("next").style.backgroundColor = 'rgb(' + nextcolorList[parseInt(myId)] + ',0,0)';
+    }
 
 }
 
