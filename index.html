@@ -142,14 +142,18 @@ function setReady() {
     } else if (cnt==0) {
         document.getElementById("me").style.backgroundColor = 'white';
         document.getElementById("me").innerText = 'set';
+        document.getElementById("next").style.backgroundColor = 'yellow'
         cnt++;
     } else if (cnt==1) {
         document.getElementById("me").style.backgroundColor = 'yellow';
         document.getElementById("me").innerText = 'ready';
+        document.getElementById("next").style.backgroundColor = 'green'
         cnt++;
     } else if (cnt==2) {
         document.getElementById("me").style.backgroundColor = 'green';
         document.getElementById("me").innerText = 'GO';
+        colorList = theData[cnt];
+        document.getElementById("next").style.backgroundColor = 'rgb(' + colorList[parseInt(myId)] + ',0,0)';
         cnt++
     } else {
         colorList = theData[cnt];
